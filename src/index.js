@@ -97,7 +97,7 @@ async function fixRepo() {
     'utf-8',
   );
   const newPackageJson = packageJson.replace(
-    /"name": "template-vite-vanilla"/,
+    /"name": "template-[^"]+"/,
     `"name": "${settings.projectName}"`,
   );
   await writeFile(
