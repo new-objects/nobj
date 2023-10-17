@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "main": "./src/index.js",
   "bin": {
-    "nobj": "./src/index.js"
+    "nobj": "src/index.js"
   },
   "type": "module",
   "scripts": {
@@ -16,7 +16,7 @@
     "format": "npm run prettier:fix && npm run lint:fix"
   },
   "keywords": [],
-  "author": "",
+  "author": "mi-skam",
   "license": "ISC",
   "dependencies": {
     "chalk": "^5.3.0",
@@ -40,5 +40,14 @@
     "husky": "^8.0.3",
     "nodemon": "^3.0.1",
     "prettier": "^3.0.3"
-  }
+  },
+  "description": "Create new objects from templates.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/new-objects/cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/new-objects/cli/issues"
+  },
+  "homepage": "https://github.com/new-objects/cli#readme"
 }

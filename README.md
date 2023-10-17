@@ -6,6 +6,8 @@ Create new objects from templates.
 
 ```bash
 npm i -g @new-objects/cli
+# or
+npx @new-objects/cli
 ```
 
 ## Usage
