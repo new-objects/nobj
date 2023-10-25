@@ -1,4 +1,4 @@
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile, writeFile, rm } from 'node:fs/promises';
 import { $ } from 'execa';
 import { settings } from './settings.js';
 
@@ -17,11 +17,15 @@ export async function fixRepo() {
     newPackageJson,
     'utf-8',
   );
-  // remove git remote
+  // fix git
   const $$ = $({ cwd: `${settings.projectName}` });
   try {
-    await $$`git remote remove origin`;
-  } catch {
-    console.log('No remote origin found');
+    await rm(`${settings.projectName}/.git`, { recursive: true });
+    await $$`git init -b main`;
+    await $$`git add .`;
+    await $$`git commit -m 'init'`;
+  } catch (error) {
+    console.log(error);
+    console.log('No git repo found.');
   }
 }
