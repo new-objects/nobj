@@ -5,6 +5,7 @@ import { downloadRepo } from './downloadRepo.js';
 import { fixRepo } from './fixRepo.js';
 import { welcome } from './welcome.js';
 import { readFile } from 'node:fs/promises';
+import { templateRepos } from './templates.js';
 
 //                        .oPYo. 8       o                 o
 //                        8    8 8                         8
@@ -17,16 +18,9 @@ import { readFile } from 'node:fs/promises';
 // :::::::::::::::::::::::::::::::::::::..:::::::::::::::::::::::::::
 // author: mi-skam
 
-const packageJson = await readFile(
-  new URL('../package.json', import.meta.url),
-  'utf-8',
-);
-const { version: VERSION } = JSON.parse(packageJson);
+import { handleCmdOptions } from './cmdOptions.js';
 
-if (process.argv.includes('--version') || process.argv.includes('-v')) {
-  console.log(VERSION);
-  process.exit(0);
-}
+handleCmdOptions();
 
 welcome()
   .then(askProjectName)
