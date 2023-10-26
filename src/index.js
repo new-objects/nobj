@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { version } from '../package.json';
 
 //                        .oPYo. 8       o                 o
 //                        8    8 8                         8
@@ -10,6 +11,11 @@
 // :::::::::::::::::::::::::::::::::::::oP ::::::::::::::::::::::::::
 // :::::::::::::::::::::::::::::::::::::..:::::::::::::::::::::::::::
 // author: mi-skam date: 17.10.2023
+
+if (process.argv.includes('--version') || process.argv.includes('-v')) {
+  console.log(version);
+  process.exit(0);
+}
 
 import { askProjectName } from './askProjectName.js';
 import { projectType } from './projectType.js';
