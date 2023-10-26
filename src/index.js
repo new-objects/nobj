@@ -4,8 +4,7 @@ import { projectType } from './projectType.js';
 import { downloadRepo } from './downloadRepo.js';
 import { fixRepo } from './fixRepo.js';
 import { welcome } from './welcome.js';
-import package from '../package.json';
-const { version } = package;
+import { readFile } from 'node:fs/promises';
 
 //                        .oPYo. 8       o                 o
 //                        8    8 8                         8
@@ -16,10 +15,16 @@ const { version } = package;
 // ..::..:.....:::..::..:::.....::.....::8 :.....::.....:::..::.....:
 // :::::::::::::::::::::::::::::::::::::oP ::::::::::::::::::::::::::
 // :::::::::::::::::::::::::::::::::::::..:::::::::::::::::::::::::::
-// author: mi-skam date: 17.10.2023
+// author: mi-skam
+
+const packageJson = await readFile(
+  new URL('../package.json', import.meta.url),
+  'utf-8',
+);
+const { version: VERSION } = JSON.parse(packageJson);
 
 if (process.argv.includes('--version') || process.argv.includes('-v')) {
-  console.log(version);
+  console.log(VERSION);
   process.exit(0);
 }
 
