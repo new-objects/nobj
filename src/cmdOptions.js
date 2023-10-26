@@ -17,5 +17,15 @@ export function handleCmdOptions() {
       console.log(template);
     }
     process.exit(0);
+  } else if (process.argv.includes('--help') || process.argv.includes('-h')) {
+    console.log(`
+      Usage: nobj [options]
+
+      Options:
+        -v, --version       output the version number
+        -l, --list          list all available templates
+        -h, --help          display help for command
+    `);
+    process.exit(0);
   }
 }
