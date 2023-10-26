@@ -1,4 +1,9 @@
 #!/usr/bin/env node
+import { askProjectName } from './askProjectName.js';
+import { projectType } from './projectType.js';
+import { downloadRepo } from './downloadRepo.js';
+import { fixRepo } from './fixRepo.js';
+import { welcome } from './welcome.js';
 import { version } from '../package.json';
 
 //                        .oPYo. 8       o                 o
@@ -16,12 +21,6 @@ if (process.argv.includes('--version') || process.argv.includes('-v')) {
   console.log(version);
   process.exit(0);
 }
-
-import { askProjectName } from './askProjectName.js';
-import { projectType } from './projectType.js';
-import { downloadRepo } from './downloadRepo.js';
-import { fixRepo } from './fixRepo.js';
-import { welcome } from './welcome.js';
 
 welcome()
   .then(askProjectName)
