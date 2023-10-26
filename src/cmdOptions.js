@@ -11,7 +11,10 @@ export function handleCmdOptions() {
   if (process.argv.includes('--version') || process.argv.includes('-v')) {
     console.log(VERSION);
     process.exit(0);
-  } else if (process.argv.includes('--list') || process.argv.includes('-l')) {
+  } else if (
+    process.argv.includes('--templates') ||
+    process.argv.includes('-t')
+  ) {
     console.log('Available templates:');
     for (const template in templateRepos) {
       console.log(template);
@@ -23,7 +26,7 @@ export function handleCmdOptions() {
 
       Options:
         -v, --version       output the version number
-        -l, --list          list all available templates
+        -t, --templates     list all available templates
         -h, --help          display help for command
     `);
     process.exit(0);
