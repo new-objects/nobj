@@ -1,4 +1,10 @@
 #!/usr/bin/env node
+import { askProjectName } from './askProjectName.js';
+import { projectType } from './projectType.js';
+import { downloadRepo } from './downloadRepo.js';
+import { fixRepo } from './fixRepo.js';
+import { welcome } from './welcome.js';
+import { readFile } from 'node:fs/promises';
 
 //                        .oPYo. 8       o                 o
 //                        8    8 8                         8
@@ -9,13 +15,18 @@
 // ..::..:.....:::..::..:::.....::.....::8 :.....::.....:::..::.....:
 // :::::::::::::::::::::::::::::::::::::oP ::::::::::::::::::::::::::
 // :::::::::::::::::::::::::::::::::::::..:::::::::::::::::::::::::::
-// author: mi-skam date: 17.10.2023
+// author: mi-skam
 
-import { askProjectName } from './askProjectName.js';
-import { projectType } from './projectType.js';
-import { downloadRepo } from './downloadRepo.js';
-import { fixRepo } from './fixRepo.js';
-import { welcome } from './welcome.js';
+const packageJson = await readFile(
+  new URL('../package.json', import.meta.url),
+  'utf-8',
+);
+const { version: VERSION } = JSON.parse(packageJson);
+
+if (process.argv.includes('--version') || process.argv.includes('-v')) {
+  console.log(VERSION);
+  process.exit(0);
+}
 
 welcome()
   .then(askProjectName)
