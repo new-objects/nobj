@@ -4,7 +4,8 @@ import { projectType } from './projectType.js';
 import { downloadRepo } from './downloadRepo.js';
 import { fixRepo } from './fixRepo.js';
 import { welcome } from './welcome.js';
-import { version } from '../package.json' assert { type: 'json' };
+import package from '../package.json';
+const { version } = package;
 
 //                        .oPYo. 8       o                 o
 //                        8    8 8                         8
