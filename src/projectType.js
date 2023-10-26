@@ -8,8 +8,6 @@ export async function projectType() {
   const projectType = process.argv[3];
   if (projectType && projectTypes.includes(projectType)) {
     settings.projectType = projectType;
-  } else if (!projectType) {
-    settings.projectType = projectTypes[0];
   } else {
     const answer = await inquirer.prompt({
       name: 'project_type',
