@@ -18,22 +18,9 @@ import { templateRepos } from './templates.js';
 // :::::::::::::::::::::::::::::::::::::..:::::::::::::::::::::::::::
 // author: mi-skam
 
-const packageJson = await readFile(
-  new URL('../package.json', import.meta.url),
-  'utf-8',
-);
-const { version: VERSION } = JSON.parse(packageJson);
+import { handleCmdOptions } from './cmdOptions.js';
 
-if (process.argv.includes('--version') || process.argv.includes('-v')) {
-  console.log(VERSION);
-  process.exit(0);
-} else if (process.argv.includes('--list') || process.argv.includes('-l')) {
-  console.log('Available templates:');
-  for (const template in templateRepos) {
-    console.log(template);
-  }
-  process.exit(0);
-}
+handleCmdOptions();
 
 welcome()
   .then(askProjectName)
