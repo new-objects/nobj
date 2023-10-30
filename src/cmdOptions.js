@@ -22,7 +22,7 @@ export function handleCmdOptions() {
     process.exit(0);
   } else if (process.argv.includes('--help') || process.argv.includes('-h')) {
     console.log(`
-      Usage: nobj [options]
+      Usage: nobj [options] [project_name] [template]
 
       Options:
         -v, --version       output the version number
