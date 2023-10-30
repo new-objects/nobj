@@ -1,6 +1,7 @@
 import { doesDirectoryExist } from './downloadRepo';
 import { promises as fs } from 'fs';
 import path from 'path';
+import { assert, describe, expect, it } from 'vitest';
 
 describe('doesDirectoryExist', () => {
   it('should return true if the directory exists', async () => {
