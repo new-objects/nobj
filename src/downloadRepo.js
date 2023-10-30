@@ -3,7 +3,7 @@ import { $ } from 'execa';
 import { templateRepos } from './templates.js';
 import { settings } from './settings.js';
 
-async function doesDirectoryExist(directoryPath) {
+export async function doesDirectoryExist(directoryPath) {
   try {
     const stats = await stat(directoryPath);
     return stats.isDirectory();

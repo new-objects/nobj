@@ -1,4 +1,4 @@
-import { doesDirectoryExist } from './downloadRepo';
+import { doesDirectoryExist } from '../src/downloadRepo';
 import { promises as fs } from 'fs';
 import path from 'path';
 import { assert, describe, expect, it } from 'vitest';
