@@ -25,3 +25,6 @@ dist-ssr
 
 # aider
 .aider*
+
+# Secrets
+.env

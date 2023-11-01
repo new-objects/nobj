@@ -1,8 +1,7 @@
 {
   "name": "@new-objects/cli",
   "description": "Create new objects from templates.",
-  "private": true,
-  "version": "0.0.7",
+  "version": "0.0.8",
   "main": "./src/index.js",
   "bin": {
     "nobj": "src/index.js"

@@ -2,21 +2,17 @@ import { readFile, writeFile, rm } from 'node:fs/promises';
 import { $ } from 'execa';
 import { settings } from './settings.js';
 
+const filesToBeFixed = [`vite.config.js`, `package.json`];
+
 export async function fixRepo() {
-  // fix name property in package.json
-  const packageJson = await readFile(
-    `${settings.projectName}/package.json`,
-    'utf-8',
-  );
-  const newPackageJson = packageJson.replace(
-    /"name": "template-[^"]+"/,
-    `"name": "${settings.projectName}"`,
-  );
-  await writeFile(
-    `${settings.projectName}/package.json`,
-    newPackageJson,
-    'utf-8',
-  );
+  for (const f of filesToBeFixed) {
+    const fileContent = await readFile(`${settings.projectName}/${f}`, 'utf-8');
+    const newFileContent = fileContent.replace(
+      /template-[^"/]+/g,
+      settings.projectName,
+    );
+    await writeFile(`${settings.projectName}/${f}`, newFileContent, 'utf-8');
+  }
   // fix git
   const $$ = $({ cwd: `${settings.projectName}` });
   try {
