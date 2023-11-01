@@ -1,6 +1,8 @@
 {
   "name": "@new-objects/cli",
-  "version": "0.0.6",
+  "description": "Create new objects from templates.",
+  "private": true,
+  "version": "0.0.7",
   "main": "./src/index.js",
   "bin": {
     "nobj": "src/index.js"
@@ -13,7 +15,8 @@
     "lint:fix": "npm run lint -- --fix",
     "prettier": "npx prettier src --check",
     "prettier:fix": "npm run prettier -- --write",
-    "format": "npm run prettier:fix && npm run lint:fix"
+    "format": "npm run prettier:fix && npm run lint:fix",
+    "test": "vitest"
   },
   "keywords": [],
   "author": "mi-skam",
@@ -39,9 +42,9 @@
     "eslint-plugin-promise": "^6.1.1",
     "husky": "^8.0.3",
     "nodemon": "^3.0.1",
-    "prettier": "^3.0.3"
+    "prettier": "^3.0.3",
+    "vitest": "^0.34.6"
   },
-  "description": "Create new objects from templates.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/new-objects/cli.git"
