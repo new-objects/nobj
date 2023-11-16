@@ -6,7 +6,12 @@ const filesToBeFixed = [`vite.config.js`, `package.json`];
 
 export async function fixRepo() {
   for (const f of filesToBeFixed) {
-    const fileContent = await readFile(`${settings.projectName}/${f}`, 'utf-8');
+    let fileContent;
+    try {
+      fileContent = await readFile(`${settings.projectName}/${f}`, 'utf-8');
+    } catch (_) {
+      continue;
+    }
     const newFileContent = fileContent.replace(
       /template-[^"/]+/g,
       settings.projectName,
