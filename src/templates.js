@@ -1,8 +1,21 @@
 export const templateRepos = {
-  frontend: 'new-objects/template-frontend',
-  pixi5: 'new-objects/template-frontend-pixi5',
-  phaser3: 'new-objects/template-frontend-phaser3',
-  babylonjs: 'new-objects/template-frontend-babylonjs',
-  bun: 'new-objects/template-bun',
-  nodejs: 'new-objects/template-nodejs',
+  frontend: {
+    url: 'new-objects/template-frontend',
+  },
+  pixi5: {
+    url: 'new-objects/template-frontend-pixi5',
+    inactive: true,
+  },
+  phaser3: {
+    url: 'new-objects/template-frontend-phaser3',
+  },
+  babylonjs: {
+    url: 'new-objects/template-frontend-babylonjs',
+  },
+  bun: {
+    url: 'new-objects/template-bun',
+  },
+  nodejs: {
+    url: 'new-objects/template-nodejs',
+  },
 };

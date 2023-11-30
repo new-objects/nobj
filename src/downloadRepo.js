@@ -1,6 +1,5 @@
 import { stat } from 'node:fs/promises';
 import { $ } from 'execa';
-import { templateRepos } from './templates.js';
 import { settings } from './settings.js';
 
 export async function doesDirectoryExist(directoryPath) {
@@ -16,15 +15,15 @@ export async function doesDirectoryExist(directoryPath) {
   }
 }
 export async function downloadRepo() {
-  if (!settings.projectType) {
-    throw new Error('No project type specified');
+  if (!settings.projectTemplate) {
+    throw new Error('No project template specified');
   }
   // make sure repo doesn't exist
   const isDir = await doesDirectoryExist(settings.projectName);
   if (isDir) {
     return;
   }
-  const repo = templateRepos[settings.projectType];
+  const repo = settings.projectTemplate.url;
   const result =
     await $`git clone --depth=1 https://github.com/${repo} ${settings.projectName}`;
   console.log(result.stdout);

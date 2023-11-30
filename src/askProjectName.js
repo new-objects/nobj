@@ -7,13 +7,13 @@ export async function askProjectName() {
     settings.projectName = projectName;
   } else {
     const answer = await inquirer.prompt({
-      name: 'project_name',
+      name: 'chosenName',
       type: 'input',
       message: 'Project name: ',
       default() {
         return 'nobj-project';
       },
     });
-    settings.projectName = answer.project_name;
+    settings.projectName = answer.chosenName;
   }
 }

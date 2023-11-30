@@ -2,19 +2,26 @@ import inquirer from 'inquirer';
 import { settings } from './settings.js';
 import { templateRepos } from './templates.js';
 
-const projectTypes = Object.keys(templateRepos);
+const formatForDisplay = repos => {
+  return Object.entries(repos).map(([key, { url, inactive }]) => {
+    const label = inactive ? `${key} (deprecated)` : key;
+    return { name: label, value: repos[key] }; // Returning the original repo object as the value
+  });
+};
 
-export async function projectType() {
-  const projectType = process.argv[3];
-  if (projectType && projectTypes.includes(projectType)) {
-    settings.projectType = projectType;
+const allAvailableTemplates = Object.keys(templateRepos);
+
+export async function selectProjectTemplate() {
+  const selectedTemplate = process.argv[3];
+  if (selectedTemplate && allAvailableTemplates.includes(selectedTemplate)) {
+    settings.projectTemplate = templateRepos[selectedTemplate];
   } else {
     const answer = await inquirer.prompt({
-      name: 'project_type',
+      name: 'selectedTemplate',
       type: 'list',
       message: 'Choose your template: ',
-      choices: projectTypes,
+      choices: formatForDisplay(templateRepos),
     });
-    settings.projectType = answer.project_type;
+    settings.projectTemplate = answer.selectedTemplate;
   }
 }

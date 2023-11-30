@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { askProjectName } from './askProjectName.js';
-import { projectType } from './projectType.js';
+import { selectProjectTemplate } from './projectType.js';
 import { downloadRepo } from './downloadRepo.js';
 import { fixRepo } from './fixRepo.js';
 import { welcome } from './welcome.js';
@@ -22,6 +22,6 @@ handleCmdOptions();
 
 welcome()
   .then(askProjectName)
-  .then(projectType)
+  .then(selectProjectTemplate)
   .then(downloadRepo)
   .then(fixRepo);
