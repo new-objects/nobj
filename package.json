@@ -1,7 +1,7 @@
 {
   "name": "@new-objects/cli",
   "description": "Create new objects from templates.",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "main": "./src/index.js",
   "bin": {
     "nobj": "src/index.js"
@@ -29,7 +29,7 @@
     "simple-git": "^3.20.0"
   },
   "devDependencies": {
-    "@new-objects/eslint-config": "^0.0.2",
+    "@new-objects/eslint-config": "^0.0.3",
     "@new-objects/prettier-config": "^0.0.2",
     "husky": "^8.0.3",
     "nodemon": "^3.0.1",
