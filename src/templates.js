@@ -9,6 +9,9 @@ export const templateRepos = {
   phaser3: {
     url: 'new-objects/template-frontend-phaser3',
   },
+  phaser3-ts: {
+    url: 'new-objects/template-frontend-phaser3-ts',
+  },
   babylonjs: {
     url: 'new-objects/template-frontend-babylonjs',
   },
