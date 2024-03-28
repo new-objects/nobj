@@ -4,6 +4,7 @@ import { selectProjectTemplate } from './projectType.js';
 import { downloadRepo } from './downloadRepo.js';
 import { fixRepo } from './fixRepo.js';
 import { welcome } from './welcome.js';
+import { handleCmdOptions } from './cmdOptions.js';
 
 //                        .oPYo. 8       o                 o
 //                        8    8 8                         8
@@ -15,8 +16,6 @@ import { welcome } from './welcome.js';
 // :::::::::::::::::::::::::::::::::::::oP ::::::::::::::::::::::::::
 // :::::::::::::::::::::::::::::::::::::..:::::::::::::::::::::::::::
 // author: mi-skam
-
-import { handleCmdOptions } from './cmdOptions.js';
 
 handleCmdOptions();
 
