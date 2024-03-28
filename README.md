@@ -1,13 +1,13 @@
-# @new-objects/cli
+# @new-objects/nobj
 
 Create new objects from templates.
 
 ## Installation
 
 ```bash
-npm i -g @new-objects/cli
+npm i -g @new-objects/nobj
 # or
-npx @new-objects/cli
+npx @new-objects/nobj
 ```
 
 ## Usage
